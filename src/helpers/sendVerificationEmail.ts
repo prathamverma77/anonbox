@@ -4,14 +4,14 @@ import VerificationEmail from "../../emails/VerificationEmail";
 import { ApiResponse } from "@/types/ApiResponse";
 import { string } from "zod";
 
-export async function sendVerficationEmail(
+export async function sendVerificationEmail(
     email: string,
     username: string,
     verifyCode: string
 ) : Promise<ApiResponse>{
     try{
         await resend.emails.send({
-            from: '',
+            from: 'onboarding@resend.dev',
             to: email,
             subject: 'Anonbox | Verification code',
             react: VerificationEmail({username, otp: verifyCode}),
