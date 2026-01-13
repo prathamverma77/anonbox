@@ -4,6 +4,7 @@ import './globals.css';
 import AuthProvider from '@/context/AuthProvider';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Navbar from '@/components/Navbar'; // ✅ Add this
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,7 +22,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
-          {children}
+          <div className="flex flex-col min-h-screen">
+            <Navbar /> {/* ✅ Add Navbar here */}
+            {children}
+          </div>
           <ToastContainer position="top-right" autoClose={3000} />
         </AuthProvider>
       </body>
